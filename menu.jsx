@@ -20,7 +20,7 @@ export const Dropdown = ({ label }) => {
           className="dropdown-button"
           id="dropdownButton"
           aria-haspopup="true"
-          aria-expended={isOpen}
+          aria-expanded={isOpen}
           onClick={onTggle}
         >
           {label}
