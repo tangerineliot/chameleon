@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { httpGet, httpPatch } from "lib/http";
 
-export const Dropdown = ({ label }) => {
+export const Menu = ({ label }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   httpGet(`users/${userId}`).then((d) => {
