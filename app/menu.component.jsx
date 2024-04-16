@@ -1,15 +1,10 @@
 import React from "react";
-import { httpGet, httpPatch } from "lib/http";
 
-import * as Dropdown from "./design-system/dropdown.component";
+import * as Dropdown from "../design-system/dropdown.component";
 
-export const Menu = ({ label }) => {
-  httpGet(`users/${userId}`).then((d) => {
-    setIsOpen(user[`dropdown_${name}`]);
-  });
-
+export const Menu = ({ label, syncMenu }) => {
   return (
-    <Dropdown.Root>
+    <Dropdown.Root forceVisibility={syncMenu}>
       <Dropdown.Trigger label={label} />
 
       <Dropdown.Content>
