@@ -34,7 +34,7 @@ export const Dropdown = ({ label }) => {
           role="menu"
         >
           <div>Items</div>
-          <a href="/page1">Page 1</a>
+          <DropdownItem href="/page1">Page 1</DropdownItem>
           <DropdownItem href="/page2">Page 2</DropdownItem>
           <DropdownItem href="/page3">Page 3</DropdownItem>
           <DropdownItem href="/page4">Page 4</DropdownItem>
