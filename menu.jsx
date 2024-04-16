@@ -1,57 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import { httpGet, httpPatch } from "lib/http";
 
-export const Menu = ({ label }) => {
-  const [isOpen, setIsOpen] = useState(false);
+import * as Dropdown from "./design-system/dropdown.component";
 
+export const Menu = ({ label }) => {
   httpGet(`users/${userId}`).then((d) => {
     setIsOpen(user[`dropdown_${name}`]);
   });
 
-  const onToggle = (e) => {
-    setIsOpen(isOpen);
-  };
-
   return (
     <>
-      <div className="dropdown">
-        <button
-          type="button"
-          className="dropdown-button"
-          id="dropdownButton"
-          aria-haspopup="true"
-          aria-expanded={isOpen}
-          onClick={onTggle}
-        >
-          {label}
-        </button>
+      <Dropdown.Root>
+        <Dropdown.Trigger label={label} />
 
-        <ul
-          className={`${
-            isOpen ? "dropdown-open" : ""
-          } dropdown-menu dropdown-section`}
-          aria-labelledby="dropdownButton"
-          role="menu"
-        >
-          <div>Items</div>
-          <DropdownItem href="/page1">Page 1</DropdownItem>
-          <DropdownItem href="/page2">Page 2</DropdownItem>
-          <DropdownItem href="/page3">Page 3</DropdownItem>
-          <DropdownItem href="/page4">Page 4</DropdownItem>
-        </ul>
+        <Dropdown.Content>
+          <Dropdown.Label text="Items" />
+          <Dropdown.Item href="/page1">Page 1</Dropdown.Item>
+          <Dropdown.Item href="/page2">Page 2</Dropdown.Item>
+          <Dropdown.Item href="/page3">Page 3</Dropdown.Item>
+          <Dropdown.Item href="/page4">Page 4</Dropdown.Item>
+        </Dropdown.Content>
 
-        <ul
-          className={`${
-            isOpen ? "dropdown-open" : ""
-          } dropdown-menu dropdown-section`}
-        >
-          <div>More items</div>
-          <DropdownItem href="/page5">Page 5</DropdownItem>
-          <DropdownItem href="/page9">Page 9</DropdownItem>
-        </ul>
-      </div>
+        <Dropdown.SubContent>
+          <Dropdown.Label text="More items" />
+          <Dropdown.Item href="/page5">Page 5</Dropdown.Item>
+          <Dropdown.Item href="/page9">Page 9</Dropdown.Item>
+        </Dropdown.SubContent>
+      </Dropdown.Root>
     </>
   );
 };
-
-const DropdownItem = ({ href, children }) => <a href={href}>{children}</a>;
